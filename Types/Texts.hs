@@ -1,5 +1,7 @@
 module Types.Texts (
-    Text(..)
+    Text(..),
+    Year,
+    pushToRepo
 )
 where
 

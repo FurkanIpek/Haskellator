@@ -1,7 +1,7 @@
 files = Main.hs Types/*.hs Utils/*.hs
 flags =
 compilable = Main.hs
-obj   = haskellator
+obj = haskellator
 
 $(obj): $(files)
 	ghc $(compilable) -o $(obj)
