@@ -2,6 +2,7 @@ module Main (main) where
 
 import Utils.MiscUtils as Utils
 import Types.Texts as Texts
+import Types.Date as Date
 import qualified Data.List as List
 
 main :: IO Integer
@@ -10,9 +11,11 @@ main =
         arr = [1, 3, 12, -5, 70, -5, 2, 3]
         strArr = "avytopklva"
         haskellatorCodeBase = Texts.Code { repoName = "Haskellator", contributors = ["Furkan Ipek", "mfi"]}
-        aNovel = Texts.Novel { author = "George Orwell", publish = 1949, title = "1984" }
+        aGloriousDay = Date.Date { day = Date.Monday, month = Date.December, year = 2016 }
+        aNovel = Texts.Novel { author = "aProgrammer", publish = aGloriousDay, title = "How NOT TO Program?" }
     in
         do
+            putStr $ "A glorious day: " ++ (show aGloriousDay) ++ "\n\n"
             print $ "Sorted array(via quicksort): " ++ show (Utils.quicksort arr)
             print $ "Sorted array(via mergesort): " ++ (Utils.mergesort strArr)
             putStr "\n"
@@ -20,9 +23,10 @@ main =
             putStr "Following is a summary of this code base:\n"
             putStr $ "\tRepository name: " ++ repoName haskellatorCodeBase ++ "\n"
             putStr $ "\tContributors: " ++ List.intercalate ", " (contributors haskellatorCodeBase)
-            putStr "\n"
+            putStr "\n\n"
 
-            print $ pushToRepo aNovel
+            putStr $ "Pushing " ++ show aNovel ++ "\n"
+            putStr $ show (pushToRepo aNovel) ++ "\n\n"
             print $ pushToRepo haskellatorCodeBase
             putStr "\n"
 

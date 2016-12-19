@@ -1,13 +1,12 @@
 module Types.Texts (
     Text(..),
-    Year,
     pushToRepo
 )
 where
 
-type Year = Int
+import Types.Date as Date
 
-data Text = Novel { author :: String, publish :: Year, title :: String }
+data Text = Novel { author :: String, publish :: Date.Date, title :: String }
           | Code  { repoName :: String, contributors :: [String] } 
         deriving (Eq, Show)
 
