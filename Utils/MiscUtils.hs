@@ -1,7 +1,8 @@
 module Utils.MiscUtils (
     quicksort,
     mergesort,
-    replicate'
+    replicate',
+    titleCase
 )
 where
 
@@ -35,10 +36,11 @@ mergesort x =
             | (head x) >  (head y) = (head y) : (merge (tail y) x)
             | (head x) <= (head y) = (head x) : (merge (tail x) y)
 
+{- A replica of replicate function. -}
 replicate' :: Int -> a -> [a]
-replicate' 0 x  = []
 replicate' n x
     | n < 0     = error $ "Cannot replicate " ++ (show n) ++ " times!"
+    | n == 0    = []
     | otherwise = x : (replicate' (n-1) x)
 
 

@@ -6,7 +6,7 @@ where
 
 import Types.Date as Date
 
-data Text = Novel { author :: String, publish :: Date.Date, title :: String }
+data Text = Book { author :: String, publish :: Date.Date, title :: String }
           | Code  { repoName :: String, contributors :: [String] } 
         deriving (Eq, Show)
 
