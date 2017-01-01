@@ -1,5 +1,5 @@
 module Types.Tree (
-    testTreeModule
+    treeModule
 ) where
 
 data Tree a = NilNode | Node { value :: a, left :: (Tree a), right :: (Tree a) } deriving(Show, Eq, Ord)
@@ -21,8 +21,8 @@ elemTree x (Node a left right)
     | x > a  = elemTree x right
     | x < a  = elemTree x left
 
-testTreeModule :: IO()
-testTreeModule =
+treeModule :: IO()
+treeModule =
     let
         numbers = [7, 5, 9, 6]
         tree = foldl (\ acc x -> insertTree x acc) NilNode numbers

@@ -1,9 +1,11 @@
 module Main (main) where
 
 import Utils.MiscUtils as Utils
+import Utils.ExtendTypes as ExtendTypes
 import Types.Texts as Texts
 import Types.Date as Date
 import Types.Tree as Tree
+import Types.TrafficLight as TrafficLight
 import qualified Data.List as List
 
 main :: IO Integer
@@ -24,6 +26,8 @@ main =
             putStr "Following is a summary of this code base:\n"
             putStr $ "\tRepository name: " ++ (Utils.titleCase $ repoName haskellatorCodeBase) ++ "\n"
             putStr $ "\tContributors: " ++ List.intercalate ", " (contributors haskellatorCodeBase)
+            putStr "\nLame pretty print version of the code base:\n\t"
+            ExtendTypes.prettyPrint haskellatorCodeBase
             putStr "\n\n"
 
             putStr $ "Pushing " ++ show aBook ++ "\n"
@@ -36,6 +40,9 @@ main =
             -- print $ Utils.replicate' (-1) 'a' -- this throws an error and ends the execution
             putStr "\n"
            
-            Tree.testTreeModule
+            Tree.treeModule
+            TrafficLight.trafficLightModule
+
+            ExtendTypes.prettyPrint (5 :: Int)
 
             return 0
