@@ -8,7 +8,6 @@ import Types.Tree as Tree
 import Types.TrafficLight as TrafficLight
 import qualified Data.List as List
 
-main :: IO Integer
 main =
     let
         arr = [1, 3, 12, -5, 70, -5, 2, 3]
@@ -24,7 +23,7 @@ main =
             putStr "\n"
 
             putStr "Following is a summary of this code base:\n"
-            putStr $ "\tRepository name: " ++ (Utils.titleCase $ repoName haskellatorCodeBase) ++ "\n"
+            putStrLn $ "\tRepository name: " ++ (Utils.titleCase $ repoName haskellatorCodeBase)
             putStr $ "\tContributors: " ++ List.intercalate ", " (contributors haskellatorCodeBase)
             putStr "\nLame pretty print version of the code base:\n\t"
             ExtendTypes.prettyPrint haskellatorCodeBase
@@ -32,7 +31,7 @@ main =
 
             putStr $ "Pushing " ++ show aBook ++ "\n"
             putStr $ show (pushToRepo aBook) ++ "\n\n"
-            putStr $ "Pushing " ++ show haskellatorCodeBase ++ "\n"
+            putStrLn $ "Pushing " ++ show haskellatorCodeBase
             print $ pushToRepo haskellatorCodeBase
             putStr "\n"
 

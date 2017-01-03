@@ -43,7 +43,6 @@ replicate' n x
     | n == 0    = []
     | otherwise = x : (replicate' (n-1) x)
 
-
 {-
     Accumulation starts with a space coz during folding, beginning of words are captured via
     spaces so inital space helps us make first letter titleCase. After folding, tail of the

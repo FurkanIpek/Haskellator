@@ -4,6 +4,10 @@ module Types.Tree (
 
 data Tree a = NilNode | Node { value :: a, left :: (Tree a), right :: (Tree a) } deriving(Show, Eq, Ord)
 
+instance Functor Tree where
+    fmap f NilNode = NilNode
+    fmap f (Node a l r) = Node (f a) (fmap f l) (fmap f r)
+
 makeTree :: a -> Tree a
 makeTree x = Node x NilNode NilNode
 
@@ -33,5 +37,7 @@ treeModule =
             putStr $ "\nNow lets insert 8 to this tree" ++ "\n\n"
             print $ show $ insertTree 8 tree
             putStr $ "\nIs 5 an element of our tree: " ++ (show $ elemTree 5 tree) ++ "\n"
+            putStr "\nFollowing is a functor example:\n"
+            putStr $ show (fmap (*3) tree) ++ "\n"
             putStr $ "--||## {TREE SECTION ENDS} ##||--" ++ "\n\n"
         
