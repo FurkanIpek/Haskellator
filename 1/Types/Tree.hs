@@ -25,7 +25,7 @@ elemTree x (Node a left right)
     | x > a  = elemTree x right
     | x < a  = elemTree x left
 
-treeModule :: IO()
+treeModule :: IO ()
 treeModule =
     let
         numbers = [7, 5, 9, 6]

@@ -2,8 +2,10 @@ module Types.TrafficLight (
     trafficLightModule
 ) where
 
+import Control.Monad
+
 class Timeoutable a where
-    timeout :: Int -> a -> IO()
+    timeout :: Int -> a -> IO ()
 
 data TrafficLight = Green | Yellow | Red
 
@@ -26,7 +28,7 @@ instance Show TrafficLight where
 instance Timeoutable TrafficLight where
     timeout t x  = print $ "Timeout duration for " ++ show x ++ " is " ++ show t
 
-trafficLightModule :: IO()
+trafficLightModule :: IO ()
 trafficLightModule =
     let
         light = Green
@@ -34,5 +36,10 @@ trafficLightModule =
     in
         do
             putStr $ "--||## {TRAFFICLIGHT SECTION BEGINS} ##||--" ++ "\n"
-            timeout t light 
+            timeout t light
+            -- When True stmt is equivalent of
+            -- if True then stmt else return ()
+            -- so instead of using an else block, we use when.
+            when True $
+                print "Afk"
             putStr $ "--||## {TRAFFICLIGHT SECTION ENDS} ##||--" ++ "\n"

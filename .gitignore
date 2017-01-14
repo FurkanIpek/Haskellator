@@ -1,3 +1,4 @@
 **/*.o
 **/*.hi
-haskellator
+1/haskellator
+2/titlecase

@@ -2,7 +2,9 @@ module Utils.MiscUtils (
     quicksort,
     mergesort,
     replicate',
-    titleCase
+    titleCase,
+    reverseLine,
+    reverseWords
 )
 where
 
@@ -59,3 +61,9 @@ titleCase ls  =
                     acc ++ [x]
             )
         [' '] ls
+
+reverseLine :: String -> String
+reverseLine = foldl (\ acc x -> x : acc) []
+
+reverseWords :: String -> String
+reverseWords = unwords . map reverse . words

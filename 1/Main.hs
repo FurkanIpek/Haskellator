@@ -22,6 +22,11 @@ main =
             print $ "Sorted array(via mergesort): " ++ (Utils.mergesort strArr)
             putStr "\n"
 
+            let
+                name = "mehmet furkan ipek"
+            putStrLn $ name ++ " line reversed: " ++ Utils.reverseLine "mehmet furkan ipek"
+            putStrLn $ name ++ " words reversed: " ++ Utils.reverseWords "mehmet furkan ipek" ++ "\n"
+
             putStr "Following is a summary of this code base:\n"
             putStrLn $ "\tRepository name: " ++ (Utils.titleCase $ repoName haskellatorCodeBase)
             putStr $ "\tContributors: " ++ List.intercalate ", " (contributors haskellatorCodeBase)
